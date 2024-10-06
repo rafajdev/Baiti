@@ -4,12 +4,12 @@ import time
 
 def handle(text):
    tts = gTTS(text, lang="pt-BR")
-   tts.save('baiti/src/assets/audio/speech.mp3')
+   tts.save('src/assets/audio/speech.mp3')
 
 def play():
    pygame.init()
    pygame.mixer.init()
-   pygame.mixer.music.load('baiti/src/assets/audio/speech.mp3')  
+   pygame.mixer.music.load('src/assets/audio/speech.mp3')  
    time.sleep(0.5) 
    
    pygame.mixer.music.play()
