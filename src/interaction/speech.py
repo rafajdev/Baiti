@@ -1,5 +1,6 @@
 import speech_recognition 
 from .speech_handler import play, handle
+from functions.robot.buzzer import beep
 
 def listen():
    recognizer = speech_recognition.Recognizer()
@@ -7,6 +8,7 @@ def listen():
    
    with mic as source:
       recognizer.adjust_for_ambient_noise(source)
+      beep()
       print("Ouvindo...") # Substituir por buzzer e display
 
       try:
