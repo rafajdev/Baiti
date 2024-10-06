@@ -1,12 +1,15 @@
 import pyfirmata2
 import time
 
+port = 'COM5'
+board = pyfirmata2.Arduino(port)
+it = pyfirmata2.util.Iterator(board)
+it.start()
+
+buzzer_pin = board.get_pin('d:5:p')
+
 def beep():
-   board = pyfirmata2.Arduino('COM5')
-   
-   pin_buzzer = board.digital[13]
-   
-   pin_buzzer.write(1)
-   time.sleep(0.5)
-   pin_buzzer.write(0)
-   board.exit()
+    buzzer_pin.write(0.5)
+    time.sleep(0.5)
+    buzzer_pin.write(0)
+    board.exit()
