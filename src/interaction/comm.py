@@ -6,7 +6,7 @@ def init():
    try:
       chat = apiConfig()
 
-      speak("Olá, eu sou o Baiti. Como posso te ajudar?")
+      speak("Olá, eu sou o Baiti. Como posso te ajudar? Responda após o bip")
       
       while True:
          user_response = listen()
