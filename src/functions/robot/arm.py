@@ -13,9 +13,9 @@ class Servo:
 s1 = Servo(pin=8)
 s2 = Servo(pin=9)
 
-s1.move(0)
-s1.move(180)
-s1.move(90) 
-s2.move(0)
+s1.move(0, 1.5)
+s1.move(90, 1.5)
+s1.move(180, 1.5) 
+s2.move(90, 1.5)
 
 board.exit()
