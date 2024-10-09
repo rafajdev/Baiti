@@ -10,12 +10,12 @@ class Servo:
         time.sleep(delay)
         return angle
 
-servo_1 = Servo(pin=8)
-servo_2 = Servo(pin=9)
+s1 = Servo(pin=8)
+s2 = Servo(pin=9)
 
-servo_1.move(0)
-servo_1.move(180)
-servo_1.move(90) 
-servo_2.move(0)
+s1.move(0)
+s1.move(180)
+s1.move(90) 
+s2.move(0)
 
 board.exit()
