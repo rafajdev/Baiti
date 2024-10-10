@@ -1,4 +1,4 @@
-from interaction.speech import *
+from .speech import *
 
 help_message =  """
 Para executar comandos, diga executar seguido do comando desejado.
