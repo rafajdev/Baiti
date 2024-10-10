@@ -1,4 +1,4 @@
-from .arduino import board
+from functions.robot.arduino import board
 import time
 
 class Servo:
