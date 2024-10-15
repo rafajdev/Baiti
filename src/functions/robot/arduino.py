@@ -1,6 +1,10 @@
 import pyfirmata2
 
-try:
-   board = pyfirmata2.Arduino('/dev/ttyACM0')
-except Exception as e:
-   print(f"Ocorreu um erro inesperado: {e}")
+def use_board():
+   try:
+      board = pyfirmata2.Arduino('/dev/ttyACM1')
+      return board
+   except Exception as e:
+      print(f"Ocorreu um erro inesperado: {e}")
+      return None
+      
