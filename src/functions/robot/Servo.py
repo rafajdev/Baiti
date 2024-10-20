@@ -10,29 +10,20 @@ class Servo:
    pin: int
       The pin number to which the servo is connected
    """
-   def __init__(self, pin):
+   def __init__(self, pin, initialAng = 0):
       self.pin = use_board().get_pin(f'd:{pin}:s')
+      self.currentAng = initialAng
 
-   def move(self, angle, delay=1):
-      """
-      Move the servo to a specific angle
-
-      Parameters
-      ----------
-      angle: int (0-180)
-         The angle to which the servo should be moved
-      delay: float
-         The time to wait before releasing the servo
-      Returns
-         The angle: int (The angle to which the servo was moved)
-      """
-      
+   def move(self, angle, vel):
       if angle < 0 or angle > 180:
          raise ValueError('Angle must be between 0 and 180 degrees')
       
-      self.pin.write(angle)
-      time.sleep(delay)
-      return angle
+      step =  1 if angle > currentAng else -1
+      
+      while currentAng != angle:
+         currentAng += step
+         self.pin.write(currentAng)
+         time.sleep(vel/1000) 
       
    def end_operation(self):
       """
