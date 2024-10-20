@@ -1,4 +1,4 @@
-from Servo import Servo
+from .Servo import Servo
 import pyfirmata2
 import time
 
