@@ -43,5 +43,16 @@ class JSONHandler:
             self._write_json(data)
         else:
             raise KeyError(f"The key '{key}' was not found in the JSON file!")
+        
+    def add_to_history(self, role: str, parts: str):
+        data = self._read_json()
+        history = data.get('config', {}).get('history', [])
+        
+        message = parts.replace('\n', ' ').strip()
+
+        history.append({'role': role, 'parts': message})
+
+        data['config']['history'] = history
+        self._write_json(data)
 
 json_h = JSONHandler('src/data/main.json')

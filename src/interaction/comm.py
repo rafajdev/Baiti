@@ -12,7 +12,7 @@ def init():
          user_response = listen()
          algorithm_response = switch(user_response)
 
-         print(algorithm_response)
+         print(algorithm_response) # Print para visualização
 
          if algorithm_response == 'comp_error' or algorithm_response == 'pass':
             continue
@@ -21,5 +21,9 @@ def init():
          else:
             chat_response = chat.send_message(algorithm_response)
             speak(chat_response.text)
+            
+            json_h.add_to_history('user', user_response)
+            json_h.add_to_history('model', chat_response.text)
+            
    except Exception as e:
       print(f"Ocorreu um erro inesperado: {e}") # Fazer isto aparecer no display com um icone
