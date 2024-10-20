@@ -4,12 +4,12 @@
       "version": "1.0.0",
       "developer": "Rafael Mendes",
       "description": "Um robo de assistência inteligente e interação com o usuário.",
-      "languages_supported": "pt-BR",
-      "default_language": "pt-BR"
+      "languages_supported": "pt-BR"
    },
 
    "config": {
-      "initial_role": [
+      "default_language": "pt-BR",
+      "history": [
          {
             "role": "user",
             "parts": "Olá, o nome do seu criador é Rafael. Você se chamará 'Baiti'."
@@ -49,13 +49,16 @@
 
    "standard_messages": {
       "greetings": {
-         "pt-BR": "Olá, eu sou o Baiti! Como posso te ajudar hoje?"
+         "pt-BR": "Olá, eu sou o Baiti! Como posso te ajudar?"
       },
       "farewell": {
          "pt-BR": "Certo, Até logo!"
       },
       "error": {
          "pt-BR": "Ocorreu um erro, Tente novamente..."
+      },
+      "listening error": {
+         "pt-BR": "Desculpe, não entendi... Pode repetir?"
       },
       "help": {
          "pt-BR": "Para executar comandos, diga as palavras chaves. Exemplo: diga 'eita' para mostrar uma mensagem de teste. Comandos disponíveis: 'eita' ou 'piano' para mensagens de teste."
