@@ -1,4 +1,5 @@
 google-generativeai
 pysound
+setuptools
 pygame
 python-dotenv
