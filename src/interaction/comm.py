@@ -1,12 +1,12 @@
 from .config import apiConfig
 from .speech import *
 from .switcher import switch
+from .json_handler import json_h
 
 def init(): 
    try:
       chat = apiConfig()
-
-      speak("Olá, eu sou o Baiti. Como posso te ajudar? Responda após o bip")
+      speak(json_h.read('standard_messages')['greetings']['pt-BR'])
       
       while True:
          user_response = listen()

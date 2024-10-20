@@ -6,7 +6,7 @@ help_message = json_h.read('standard_messages')['help']['pt-BR']
 
 def switch(value):
    if value is None:
-      speak('Desculpe, não entendi... Pode repetir?')
+      speak(json_h.read('standard_messages')['listening error']['pt-BR'])
       return 'comp_error'
    else:
       text = value.lower()
@@ -21,8 +21,8 @@ def switch(value):
          speak('another one bites the dust')
          return 'pass'
       elif text == 'teste':
-         control.arm.testing()
          speak('executando o braço')
+         control.arm.testing()
       elif text == 'encerrar':
          speak('Certo, até mais!')
          return 'exit'
