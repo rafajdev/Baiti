@@ -10,20 +10,22 @@ class Servo:
    pin: int
       The pin number to which the servo is connected
    """
-   def __init__(self, pin, initialAng = 0):
+   def __init__(self, pin):
       self.pin = use_board().get_pin(f'd:{pin}:s')
-      self.currentAng = initialAng
 
    def move(self, angle, vel):
       if angle < 0 or angle > 180:
          raise ValueError('Angle must be between 0 and 180 degrees')
       
+      currentAng = self.pin.read()
       step =  1 if angle > currentAng else -1
       
       while currentAng != angle:
          currentAng += step
          self.pin.write(currentAng)
          time.sleep(vel/1000) 
+      
+      print(currentAng)
       
    def end_operation(self):
       """
