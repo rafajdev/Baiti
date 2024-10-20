@@ -12,7 +12,7 @@ def init():
          user_response = listen()
          algorithm_response = switch(user_response)
 
-         print(algorithm_response) # Print para visualização
+         print(algorithm_response) # Print para visualização (lembrar de apagar depois)
 
          if algorithm_response == 'comp_error' or algorithm_response == 'pass':
             continue
