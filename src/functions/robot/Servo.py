@@ -1,4 +1,3 @@
-from arduino import use_board
 import time
 
 class Servo:
@@ -10,8 +9,9 @@ class Servo:
    pin: int
       The pin number to which the servo is connected
    """
-   def __init__(self, pin):
-      self.pin = use_board().get_pin(f'd:{pin}:s')
+   def __init__(self, pin, board):
+      self.board = board
+      self.pin = self.board.get_pin(f'd:{pin}:s')
 
    def move(self, angle, vel):
       if angle < 0 or angle > 180:
@@ -31,5 +31,5 @@ class Servo:
       """
       Exit the board
       """
-      use_board().exit()
+      self.board.exit()
       return 0
