@@ -1,4 +1,5 @@
 from .speech import *
+from functions.robot import control
 
 help_message =  """
 Para executar comandos, diga executar seguido do comando desejado.
@@ -27,6 +28,9 @@ def switch(value):
       elif text == 'piano':      
          speak('another one bites the dust')
          return 'pass'
+      elif text == 'teste':
+         control.arm.testing()
+         speak('executando o braço')
       elif text == 'encerrar':
          speak('Certo, até mais!')
          return 'exit'
