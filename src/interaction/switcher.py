@@ -1,16 +1,8 @@
 from .speech import *
-from functions.robot import control
+from .json_handler import json_h
+# from functions.robot import control
 
-help_message =  """
-Para executar comandos, diga executar seguido do comando desejado.
-
-Exemplo: Diga "executar eita" para mostrar uma mensagem de teste.
-
-Comandos disponíveis:
-
-"eita" ou "piano" para mensagens de teste
-
-"""
+help_message = json_h.read('standard_messages')['help']['pt-BR']
 
 def switch(value):
    if value is None:
