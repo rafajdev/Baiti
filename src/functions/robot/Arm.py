@@ -1,4 +1,5 @@
 from .Servo import Servo
+from .RGBLed import RGBLed
 import pyfirmata2
 import time
 
@@ -19,22 +20,44 @@ class Arm:
         Initialize the arm with servos for various components.
         """
         self.board = use_board()
-        self.right = Servo(2, self.board, 0)
-        self.claw = Servo(3, self.board, 140)
-        self.base = Servo(4, self.board, 90)
-        self.left = Servo(5, self.board, 90)
+        
+        self.right_init_angle = 0
+        self.claw_init_angle = 140
+        self.base_init_angle = 90
+        self.left_init_angle = 90
+        
+        self.right = Servo(2, self.board, self.right_init_angle)
+        self.claw = Servo(3, self.board, self.claw_init_angle)
+        self.base = Servo(4, self.board, self.base_init_angle)
+        self.left = Servo(5, self.board, self.left_init_angle)
+        
+        self.main_led = RGBLed(9, 10, 11, self.board)
 
     def testing(self):
         """
         Perform a testing routine for the arm by moving different servos to predefined positions.
         """
-        self.base.move(90, 10)
-        self.claw.move(140, 10)
-        self.right.move(20, 10)
-        self.left.move(170, 10)
+        self.main_led.on(1, 1, 1)
+        self.base.move(0, 5)
+        self.claw.move(0, 5)
         time.sleep(0.5)
-        self.base.move(0, 10)
-        self.claw.move(110, 10)
+        self.right.move(30, 8)
+        self.left.move(170, 8)
+        self.claw.move(150, 5)
+        time.sleep(0.5)
+        self.right.move(self.right_init_angle, 5)
+        self.base.move(self.base_init_angle, 5)
+        time.sleep(0.75)
+        self.claw.move(100, 5)
+        time.sleep(0.5)
+        self.right.move(30, 8)
+        self.left.move(150, 8)
+        time.sleep(0.25)
+        self.right.move(self.right_init_angle, 5)
+        self.left.move(self.left_init_angle, 5)
+        self.claw.move(self.claw_init_angle, 5)
+        self.main_led.off()
+        
 
     def _printf(self):
         print("Oi")
