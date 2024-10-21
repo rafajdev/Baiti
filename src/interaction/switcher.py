@@ -23,6 +23,7 @@ def switch(value):
       elif text == 'teste':
          speak('executando o braço')
          control.arm.testing()
+         return 'pass'
       elif text == 'encerrar':
          speak('Certo, até mais!')
          return 'exit'
