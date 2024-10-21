@@ -1,7 +1,7 @@
 import interaction.comm as comm
 
-def main():
-   comm.init()
-
 if __name__ == "__main__":
-   main()
+   try:
+      comm.init()
+   except Exception as e:
+      print(f"An error occurred: {e}")
