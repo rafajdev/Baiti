@@ -40,6 +40,43 @@ class RGBLed:
     def off(self):
         self.on(0, 0, 0)
     
+    def on_talk(self, message):
+        if message == 'vermelho':
+            self.on_red()
+        elif message == 'verde':
+            self.on_green()
+        elif message == 'azul':
+            self.on_blue()
+        elif message == 'amarelo':
+            self.on_yellow()
+        elif message == 'magenta':
+            self.on_magenta()
+        elif message == 'ciano':
+            self.on_cyan()
+        elif message == 'branco':
+            self.on_white()
+    
+    def on_red(self):
+        self.on(1, 0, 0)
+    
+    def on_green(self):
+        self.on(0, 1, 0)
+    
+    def on_blue(self):
+        self.on(0, 0, 1)
+    
+    def on_yellow(self):
+        self.on(1, 1, 0)
+        
+    def on_magenta(self):
+        self.on(1, 0, 1)
+    
+    def on_cyan(self):
+        self.on(0, 1, 1)
+    
+    def on_white(self):
+        self.on(1, 1, 1)
+        
     def blink(self, red, green, blue, times, delay):
         for _ in range(times):
             self.on(red, green, blue)

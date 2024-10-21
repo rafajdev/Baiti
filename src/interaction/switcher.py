@@ -24,6 +24,15 @@ def switch(value):
          speak('executando o braço')
          control.arm.testing()
          return 'pass'
+      elif text == 'acender led':
+         speak('Qual cor deseja que o led acenda?')
+         user_response = listen()
+         control.arm.main_led.on_talk(user_response)
+         return 'pass'
+      elif text == 'apagar led':
+         speak('Apagando o led!')
+         control.arm.main_led.off()
+         return 'pass'
       elif text == 'encerrar':
          speak('Certo, até mais!')
          return 'exit'
