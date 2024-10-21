@@ -2,46 +2,36 @@ from .speech import *
 from .json_handler import json_h
 from functions.robot import control
 
-help_message = json_h.read('standard_messages')['help']['pt-BR']
-
 def switch(value):
    if value is None:
-      speak(json_h.read('standard_messages')['listening error']['pt-BR'])
       return 'comp_error'
+   text = value.lower()
+
+   switch_map = {
+      'ajuda': lambda: speak(json_h.read('standard_messages')['help']['pt-BR']),
+      'eita': lambda: speak('eita'),
+      'piano': lambda: speak('another one bites the dust'),
+      'teste': lambda: (speak('executando o bra o'), control.arm.testing()),
+      'acender led': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
+      'apagar led': lambda: (speak('apagando o led!'), control.arm.main_led.off()),
+      'encerrar': lambda: (speak('certo, até mais!'), 'exit')
+   }
+
+   action = switch_map.get(text)
+
+   if action:
+      action()
+      return 'pass'
    else:
-      text = value.lower()
-      
-      if text == 'ajuda':
-         speak(help_message)
-         return 'pass'
-      elif text == 'eita':
-         speak('eita')
-         return 'pass'
-      elif text == 'piano':      
-         speak('another one bites the dust')
-         return 'pass'
-      elif text == 'teste':
-         speak('executando o braço')
-         control.arm.testing()
-         return 'pass'
-      elif text == 'acender led':
-         speak('Qual cor deseja que o led acenda?')
-         user_response = listen()
-         
-         result = control.arm.main_led.on_talk(user_response)
-         
-         if result == 'color_error':
-            speak(json_h.read('standard_messages')['error']['pt-BR'])
-            return 'pass'
-         else:
-            speak("Led Acendido! O que deseja fazer agora?")   
-            return 'pass'
-      elif text == 'apagar led':
-         speak('Apagando o led!')
-         control.arm.main_led.off()
-         return 'pass'
-      elif text == 'encerrar':
-         speak('Certo, até mais!')
-         return 'exit'
-      else:
-         return text
+      return text
+
+def led_on_talk(element):
+   user_response = listen()
+   result = element.on_talk(user_response)
+
+   if result == 'color_error':
+      speak(json_h.read('standard_messages')['error']['pt-BR'])
+      return 'pass'
+   else:
+      speak("Led acendido! O que deseja fazer agora?")
+      return 'pass'
