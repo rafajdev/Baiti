@@ -9,7 +9,7 @@ def handle(text):
 def play():
    pygame.init()
    pygame.mixer.init()
-   pygame.mixer.music.load('src/assets/audio/speech.mp3')  
+   pygame.mixer.music.load('src/assets/audios/speech.mp3')  
    time.sleep(0.5) 
    
    pygame.mixer.music.play()
