@@ -41,20 +41,29 @@ class RGBLed:
         self.on(0, 0, 0)
     
     def on_talk(self, message):
-        if message == 'vermelho':
+        if message.lower() == 'vermelho':
             self.on_red()
-        elif message == 'verde':
+            return 'pass'
+        elif message.lower() == 'verde':
             self.on_green()
-        elif message == 'azul':
+            return 'pass'
+        elif message.lower() == 'azul':
             self.on_blue()
-        elif message == 'amarelo':
+            return 'pass'
+        elif message.lower() == 'amarelo':
             self.on_yellow()
-        elif message == 'magenta':
+            return 'pass'
+        elif message.lower() == 'magenta':
             self.on_magenta()
-        elif message == 'ciano':
+            return 'pass'
+        elif message.lower() == 'ciano':
             self.on_cyan()
-        elif message == 'branco':
+            return 'pass'
+        elif message.lower() == 'branco':
             self.on_white()
+            return 'pass'
+        else:
+            return 'color_error'
     
     def on_red(self):
         self.on(1, 0, 0)
