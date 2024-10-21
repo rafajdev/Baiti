@@ -6,12 +6,18 @@ class Servo:
    
    Parameters
    ----------
+   board: pyfirmata2.Arduino
+      The board to which the servo is connected
+   
    pin: int
       The pin number to which the servo is connected
    """
-   def __init__(self, pin, board):
+   def __init__(self, pin, board, initAngle):
       self.board = board
+      self.initAngle = initAngle
       self.pin = self.board.get_pin(f'd:{pin}:s')
+      self.pin.write(self.initAngle)      
+      
 
    def move(self, angle, vel):
       if angle < 0 or angle > 180:
