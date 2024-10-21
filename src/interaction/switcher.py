@@ -27,8 +27,15 @@ def switch(value):
       elif text == 'acender led':
          speak('Qual cor deseja que o led acenda?')
          user_response = listen()
-         control.arm.main_led.on_talk(user_response)
-         return 'pass'
+         
+         result = control.arm.main_led.on_talk(user_response)
+         
+         if result == 'color_error':
+            speak(json_h.read('standard_messages')['error']['pt-BR'])
+            return 'pass'
+         else:
+            speak("Led Acendido! O que deseja fazer agora?")   
+            return 'pass'
       elif text == 'apagar led':
          speak('Apagando o led!')
          control.arm.main_led.off()
