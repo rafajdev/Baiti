@@ -1,6 +1,6 @@
 from .speech import *
 from .json_handler import json_h
-# from functions.robot import control
+from functions.robot import control
 
 help_message = json_h.read('standard_messages')['help']['pt-BR']
 

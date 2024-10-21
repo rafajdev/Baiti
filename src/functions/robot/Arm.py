@@ -13,11 +13,11 @@ def use_board():
 class Arm:
    def __init__(self):
       self.board = use_board()
-      self.base = Servo(2, self.board)
-      self.claw = Servo(3, self.board)
-      self.right = Servo(4, self.board)
-      self.left = Servo(5, self.board)
-      self.test = Servo(6, self.board)
+      self.base = Servo(2, self.board, 90)
+      self.claw = Servo(3, self.board, 140)
+      self.right = Servo(4, self.board, 0)
+      self.left = Servo(5, self.board, 90)
+      # self.test = Servo(6, self.board)
       
    def testing(self):
       self.base.move(90, 10)
@@ -30,7 +30,7 @@ class Arm:
       self.claw.move(110, 10)
       self.test.move(0, 10)
       
-   def printf(self):
+   def _printf(self):
       print("Oi")
 
    def end_operation(self):
