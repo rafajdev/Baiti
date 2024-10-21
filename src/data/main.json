@@ -48,6 +48,30 @@
             {
                 "role": "model",
                 "parts": "Não vou usar emojis, não vou usar emojis."
+            },
+            {
+                "role": "user",
+                "parts": "Oi"
+            },
+            {
+                "role": "model",
+                "parts": "E aí!    Como posso te ajudar hoje?"
+            },
+            {
+                "role": "user",
+                "parts": "robô"
+            },
+            {
+                "role": "model",
+                "parts": "Falando em robôs, qual é a sua pergunta? 🤖"
+            },
+            {
+                "role": "user",
+                "parts": "robô"
+            },
+            {
+                "role": "model",
+                "parts": "Ah, você gosta de robôs?    O que você quer saber sobre eles? 🤔"
             }
         ]
     },
