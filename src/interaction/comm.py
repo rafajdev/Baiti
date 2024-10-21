@@ -22,8 +22,8 @@ def init():
             chat_response = chat.send_message(algorithm_response)
             speak(chat_response.text)
             
-            json_h.add_to_history('user', user_response)
-            json_h.add_to_history('model', chat_response.text)
+            # json_h.add_to_history('user', user_response)
+            # json_h.add_to_history('model', chat_response.text)
             
    except Exception as e:
       print(f"Ocorreu um erro inesperado: {e}") # Fazer isto aparecer no display com um icone
