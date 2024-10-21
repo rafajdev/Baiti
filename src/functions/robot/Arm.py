@@ -19,10 +19,10 @@ class Arm:
         Initialize the arm with servos for various components.
         """
         self.board = use_board()
-        self.right = Servo(1, self.board, 0)
-        self.claw = Servo(2, self.board, 140)
+        self.right = Servo(2, self.board, 0)
+        self.claw = Servo(3, self.board, 140)
         self.base = Servo(4, self.board, 90)
-        self.left = Servo(3, self.board, 90)
+        self.left = Servo(5, self.board, 90)
 
     def testing(self):
         """
