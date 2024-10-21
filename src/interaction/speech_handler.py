@@ -4,7 +4,7 @@ import time
 
 def handle(text):
    tts = gTTS(text, lang="pt-BR")
-   tts.save('src/assets/audio/speech.mp3')
+   tts.save('src/assets/audios/speech.mp3')
 
 def play():
    pygame.init()
