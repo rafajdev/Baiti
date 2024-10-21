@@ -5,4 +5,5 @@ pysound
 setuptools
 pygame
 pyaudio
+pyfirmata2
 python-dotenv
