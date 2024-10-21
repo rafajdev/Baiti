@@ -32,11 +32,9 @@ class Arm:
         self.claw.move(140, 10)
         self.right.move(20, 10)
         self.left.move(170, 10)
-        self.test.move(90, 10)
         time.sleep(0.5)
         self.base.move(0, 10)
         self.claw.move(110, 10)
-        self.test.move(0, 10)
 
     def _printf(self):
         print("Oi")
