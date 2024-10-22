@@ -2,18 +2,32 @@ from gtts import gTTS
 import pygame
 import time
 
-def handle(text):
-   tts = gTTS(text, lang="pt-BR")
-   tts.save('src/assets/audios/speech.mp3')
+def generate_speech(text: str) -> None:
+    """
+    Generate a speech audio file based on given text.
 
-def play():
-   pygame.init()
-   pygame.mixer.init()
-   pygame.mixer.music.load('src/assets/audios/speech.mp3')  
-   time.sleep(0.5) 
-   
-   pygame.mixer.music.play()
-   while pygame.mixer.music.get_busy():
-      time.sleep(1)
+    The generated audio file is saved in the "src/assets/audios/speech.mp3" file.
 
-   pygame.quit()
+    Parameters
+    ----------
+    text : str
+        The text to be converted to speech.
+    """
+    speech_generator = gTTS(text, lang="pt-BR")
+    speech_generator.save("src/assets/audios/speech.mp3")
+
+def play_speech():
+    """
+    Play the generated speech audio file.
+
+    This function initializes the Pygame mixer, loads the speech audio file, plays it,
+    and waits until the audio finishes playing before quitting Pygame.
+    """
+    pygame.mixer.init()
+    pygame.mixer.music.load("src/assets/audios/speech.mp3")
+
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy():
+        time.sleep(1)
+
+    pygame.quit()
