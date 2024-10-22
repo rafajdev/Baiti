@@ -42,5 +42,3 @@ def beep(default: bool = True, duration: float = None, frequency: float = None, 
     sd.wait()
 
     return ("beeped", duration, frequency, sample_rate)
-
-beep(False, 0.1, 440, 44100)
