@@ -1,5 +1,5 @@
 import speech_recognition 
-from .speech_handler import play, handle
+from .speech_handler import play_speech, generate_speech
 
 def listen() -> str:
    """
@@ -35,5 +35,5 @@ def speak(text):
    """
    Speak the given text by handling it and playing the audio.
    """
-   handle(text)
-   play()
+   generate_speech(text)
+   play_speech()
