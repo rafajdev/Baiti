@@ -14,7 +14,7 @@ class Servo:
       The initial angle of the servo
    """
 
-   def __init__(self, pin, board, initAngle):
+   def __init__(self, pin: int, board, initAngle: int):
       """
       Parameters
       ----------
@@ -31,7 +31,7 @@ class Servo:
       self.pin.write(self.initAngle)      
       
 
-   def move(self, angle, vel):
+   def move(self, angle: int, vel: int):
       """
       Move the servo to the given angle with the given velocity
       
@@ -61,3 +61,4 @@ class Servo:
       """
       self.board.exit()
       return 0
+
