@@ -3,6 +3,8 @@ SpeechRecognition
 gtts
 pysound
 setuptools
+numpy
+sounddevice
 pygame
 pyaudio
 pyfirmata2
