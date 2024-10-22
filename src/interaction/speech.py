@@ -1,7 +1,7 @@
 import speech_recognition 
 from .speech_handler import play, handle
 
-def listen():
+def listen() -> str:
    """
    Listen for user voice input and return the text.
 
