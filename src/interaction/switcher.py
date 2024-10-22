@@ -1,5 +1,5 @@
 from .speech import *
-from .json_handler import json_h
+from utils.json_handler import json_h
 from functions.robot import control
 
 def switch(value: str):

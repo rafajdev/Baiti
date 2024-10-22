@@ -1,6 +1,6 @@
 import os
 import google.generativeai as genai
-from .json_handler import json_h
+from utils.json_handler import json_h
 from dotenv import load_dotenv
 
 def apiConfig():

@@ -8,6 +8,7 @@
     },
     "config": {
         "default_language": "pt-BR",
+        "arduino_board": "/dev/ttyUSB0",
         "history": [
             {
                 "role": "user",
