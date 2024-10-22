@@ -16,7 +16,7 @@ def listen() -> str:
    with speech_recognition.Microphone() as source:
       recognizer.adjust_for_ambient_noise(source, duration=0.5)
       
-      beep()
+      beep(True)
       print("Ouvindo...")   # Talvez será removido
       
 
