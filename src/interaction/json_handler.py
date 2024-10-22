@@ -1,27 +1,14 @@
 import json
+from pathlib import Path
+
 
 class JSONHandler:
-    def __init__(self, jsonFile_path: str):
-        self.file_path = jsonFile_path
+    def __init__(self, file_path: Path):
+        self.file_path = file_path
 
-    def _read_json(self) -> dict:
-        try:
-            with open(self.file_path, 'r', encoding='utf-8') as file:
-                return json.load(file)
-        except FileNotFoundError:
-            return {}
-        except json.JSONDecodeError:
-            raise ValueError("Error decoding the JSON file!")
-
-    def _write_json(self, data: dict):
-        with open(self.file_path, 'w', encoding='utf-8') as file:
-            json.dump(data, file, indent=4, ensure_ascii=False)
-
-    def read(self, key: str = None):
+    def read(self, key: str = None) -> dict:
         data = self._read_json()
-        if key:
-            return data.get(key)
-        return data
+        return data.get(key) if key else data
 
     def write(self, key: str, value):
         data = self._read_json()
@@ -43,16 +30,29 @@ class JSONHandler:
             self._write_json(data)
         else:
             raise KeyError(f"The key '{key}' was not found in the JSON file!")
-        
+
     def add_to_history(self, role: str, parts: str):
         data = self._read_json()
-        history = data.get('config', {}).get('history', [])
-        
+        history = data.setdefault('config', {}).setdefault('history', [])
+
         message = parts.replace('\n', ' ').strip()
 
         history.append({'role': role, 'parts': message})
 
-        data['config']['history'] = history
         self._write_json(data)
 
-json_h = JSONHandler('src/data/main.json')
+    def _read_json(self) -> dict:
+        try:
+            with self.file_path.open('r', encoding='utf-8') as file:
+                return json.load(file)
+        except FileNotFoundError:
+            return {}
+        except json.JSONDecodeError:
+            raise ValueError("Error decoding the JSON file!")
+
+    def _write_json(self, data: dict):
+        with self.file_path.open('w', encoding='utf-8') as file:
+            json.dump(data, file, indent=4, ensure_ascii=False)
+
+
+json_h = JSONHandler(Path('src/data/main.json'))
