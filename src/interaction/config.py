@@ -16,11 +16,14 @@ def apiConfig():
    load_dotenv()
    api_key = os.getenv('GOOGLE_API_KEY')
 
-   genai.configure(api_key=api_key)
-   model = genai.GenerativeModel("gemini-1.5-flash")
+   try:
+      genai.configure(api_key=api_key)
+      model = genai.GenerativeModel("gemini-1.5-flash")
 
-   chat = model.start_chat(
-      history = json_h.read('config')['history']
-   )
-   
-   return chat
+      chat = model.start_chat(
+         history = json_h.read('config')['history']
+      )
+      
+      return chat
+   except Exception as e:
+      print(f"Ocorreu um erro inesperado: {e}") # Fazer isto aparecer em um display se possível
