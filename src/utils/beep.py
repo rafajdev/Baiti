@@ -29,19 +29,12 @@ def beep(duration: float, frequency: float, sample_rate: int):
     ('beeped', 1.0, 440.0, 44100)
 
     """
-    # Create a numpy array with the time values
     t = np.linspace(0, duration, int(sample_rate * duration), False)
 
-    # Generate the beep sound wave
     beep = np.sin(frequency * t * 2 * np.pi)
-
-    # Play the beep sound
     sd.play(beep, samplerate=sample_rate)
-
-    # Wait until the sound has finished playing
     sd.wait()
 
-    # Return a tuple with the beep sound's parameters
     return ("beeped", duration, frequency, sample_rate)
 
 beep(1, 440, 44100)
