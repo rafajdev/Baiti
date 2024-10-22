@@ -2,7 +2,7 @@ from .speech import *
 from .json_handler import json_h
 from functions.robot import control
 
-def switch(value):
+def switch(value: str):
    if value is None:
       return 'comp_error'
    text = value.lower()
