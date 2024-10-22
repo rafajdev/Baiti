@@ -13,7 +13,7 @@ def switch(value: str):
       'piano': lambda: speak('another one bites the dust'),
       'teste': lambda: (speak('executando o braço'), control.arm.testing()),
       'acender led': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
-      'apagar led': lambda: (speak('apagando o led!'), control.arm.main_led.off()),
+      'apagar led': lambda: (speak('apagando o led!'), control.arm.main_led.off(), speak('o que deseja fazer agora?')),
       'encerrar': lambda: 'exit'
    }
 
