@@ -13,7 +13,6 @@ def init():
          algorithm_response = switch(user_response)
 
          print(algorithm_response) # Print para visualização (lembrar de apagar depois)
-
          if algorithm_response == 'comp_error' or algorithm_response == 'pass':
             continue
          elif algorithm_response == 'exit':
