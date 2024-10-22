@@ -1,7 +1,7 @@
 import numpy as np
 import sounddevice as sd
 
-def beep(duration: float, frequency: float, sample_rate: int):
+def beep(default: bool ,duration: float, frequency: float, sample_rate: int):
     """
     Generate a beep sound using the sounddevice library.
 
@@ -29,6 +29,12 @@ def beep(duration: float, frequency: float, sample_rate: int):
     ('beeped', 1.0, 440.0, 44100)
 
     """
+    
+    if default:
+        duration = 1
+        frequency = 440
+        sample_rate = 44100
+    
     t = np.linspace(0, duration, int(sample_rate * duration), False)
 
     beep = np.sin(frequency * t * 2 * np.pi)

@@ -1,4 +1,5 @@
 import speech_recognition 
+from utils.beep import beep
 from .speech_handler import play_speech, generate_speech
 
 def listen() -> str:
@@ -14,7 +15,10 @@ def listen() -> str:
    recognizer = speech_recognition.Recognizer()
    with speech_recognition.Microphone() as source:
       recognizer.adjust_for_ambient_noise(source, duration=0.5)
-      print("Ouvindo...")  # Substituir por buzzer e display
+      
+      beep()
+      print("Ouvindo...")   # Talvez será removido
+      
 
       try:
          audio = recognizer.listen(source)
