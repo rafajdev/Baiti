@@ -3,23 +3,25 @@ from .speech import *
 from .switcher import switch
 from .json_handler import json_h
 
-def init(): 
+def init():
+   chat = apiConfig()
+   speak(json_h.read('standard_messages')['greetings']['pt-BR'])
+   user_history = []
+   model_history = []
 
-      chat = apiConfig()
-      speak(json_h.read('standard_messages')['greetings']['pt-BR'])
+   while True:
+      user_response = listen()
+      algorithm_response = switch(user_response)
+
+      if algorithm_response == 'exit':
+         break
+      elif algorithm_response == 'comp_error' or algorithm_response == 'pass':
+         continue
       
-      while True:
-         user_response = listen()
-         algorithm_response = switch(user_response)
+      user_history.append(user_response)
+      chat_response = chat.send_message(algorithm_response)
+      model_history.append(chat_response.text)
+      speak(chat_response.text)
 
-         print(algorithm_response) # Print para visualização (lembrar de apagar depois)
-         if algorithm_response == 'comp_error' or algorithm_response == 'pass':
-            continue
-         elif algorithm_response == 'exit':
-            break
-         else:
-            chat_response = chat.send_message(algorithm_response)
-            speak(chat_response.text)
-            
-            # json_h.add_to_history('user', user_response)
-            # json_h.add_to_history('model', chat_response.text)
+   # json_h.add_to_history('user', user_history)
+   # json_h.add_to_history('model', model_history)
