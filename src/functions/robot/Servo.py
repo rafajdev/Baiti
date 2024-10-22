@@ -53,7 +53,7 @@ class Servo:
          self.pin.write(currentAng)
          time.sleep(vel/1000) 
       
-      print(currentAng)
+      print(currentAng) # Remover depois
       
    def end_operation(self):
       """
