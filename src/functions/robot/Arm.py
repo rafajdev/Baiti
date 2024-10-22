@@ -38,7 +38,7 @@ class Arm:
         """
         Perform a testing routine for the arm by moving different servos to predefined positions.
         """
-        self.main_led.on(1, 1, 1)
+        self.main_led.set_color_by_name("branco")
         self.base.move(0, 5)
         self.claw.move(0, 5)
         time.sleep(0.5)
