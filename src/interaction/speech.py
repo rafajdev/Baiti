@@ -24,7 +24,8 @@ def listen() -> str:
          return text
       
       except (speech_recognition.UnknownValueError, speech_recognition.RequestError) as e:
-         print(f"Ocorreu um erro inesperado: {e}")
+         print(f"Erro de escuta")
+         speak("Desculpe, não entendi... Pode repetir?")
          return None
 
       except Exception as e:
