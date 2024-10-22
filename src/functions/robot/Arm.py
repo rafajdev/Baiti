@@ -1,11 +1,12 @@
 from .Servo import Servo
 from .RGBLed import RGBLed
+from utils.json_handler import json_h
 import pyfirmata2
 import time
 
 def use_board():
    try:
-      board = pyfirmata2.Arduino('/dev/ttyUSB0')
+      board = pyfirmata2.Arduino(json_h.read('config')['arduino_board'])
       return board
    except Exception as e:
       print(f"Ocorreu um erro inesperado: {e}")
