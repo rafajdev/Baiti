@@ -14,14 +14,18 @@ def switch(value: str):
       'teste': lambda: (speak('executando o braço'), control.arm.testing()),
       'acender led': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
       'apagar led': lambda: (speak('apagando o led!'), control.arm.main_led.off()),
-      'encerrar': lambda: (speak('certo, até mais!'), 'exit')
+      'encerrar': lambda: 'exit'
    }
 
    action = switch_map.get(text)
 
    if action:
-      action()
-      return 'pass'
+      result = action()
+      if result == 'exit':
+         speak('Certo, Até logo!')
+         return result
+      else:
+         return 'pass'
    else:
       return text
 
