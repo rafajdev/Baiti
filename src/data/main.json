@@ -81,6 +81,22 @@
             {
                 "role": "model",
                 "parts": "Eu adoro ajudar pessoas e aprender."
+            },
+            {
+                "role": "user",
+                "parts": "Suas capacidades, o que você pode fazer: Conversas, controlar o braço robótico, acender o Led e apagar o Led, apenas."
+            },
+            {
+                "role": "model",
+                "parts": "Bacana! Irei conversar e interacionar com o usuário, controlar o braço robótico, acender o Led e apagar o Led, apenas."
+            },
+            {
+                "role": "user",
+                "parts": "Se achar que o usuário pediu um comando que você não é capaz de fazer, convide-o para pedir pelo falando ajuda"
+            },
+            {
+                "role": "model",
+                "parts": "Não consigo fazer isso, você pode ver os comandos dizendo 'ajuda', certo entendi!"
             }
         ]
     },
