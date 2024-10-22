@@ -3,11 +3,9 @@ from .speech_handler import play, handle
 
 def listen():
    recognizer = speech_recognition.Recognizer()
-   mic = speech_recognition.Microphone()
-   
-   with mic as source:
-      recognizer.adjust_for_ambient_noise(source)
-      print("Ouvindo...") # Substituir por buzzer e display
+   with speech_recognition.Microphone() as source:
+      recognizer.adjust_for_ambient_noise(source, duration=0.5)
+      print("Ouvindo...")  # Substituir por buzzer e display
 
       try:
          audio = recognizer.listen(source)
@@ -16,13 +14,13 @@ def listen():
          print(f"Você: {text}")
          return text
       
-      except speech_recognition.UnknownValueError as e:
-            print(f"Ocorreu um erro inesperado: {e}")
-            return None
-      
+      except (speech_recognition.UnknownValueError, speech_recognition.RequestError) as e:
+         print(f"Ocorreu um erro inesperado: {e}")
+         return None
+
       except Exception as e:
-            print(f"Ocorreu um erro inesperado: {e}")
-            return None       
+         print(f"Ocorreu um erro inesperado: {e}")
+         return None
            
 def speak(text):
    handle(text)
