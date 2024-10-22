@@ -31,7 +31,7 @@ def switch(value: str):
 
 def led_on_talk(element):
    user_response = listen()
-   result = element.on_talk(user_response)
+   result = element.set_color_by_name(user_response)
 
    if result == 'color_error':
       speak(json_h.read('standard_messages')['error']['pt-BR'])
