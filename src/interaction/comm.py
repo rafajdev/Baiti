@@ -1,7 +1,7 @@
 from .config import apiConfig
 from .speech import *
 from .switcher import switch
-from .json_handler import json_h
+from utils.json_handler import json_h
 
 def init():
    chat = apiConfig()
