@@ -92,11 +92,11 @@
             },
             {
                 "role": "user",
-                "parts": "Se achar que o usuário pediu um comando que você não é capaz de fazer, convide-o para pedir pelo falando ajuda"
+                "parts": "Se achar que o usuário pediu um comando que você não é capaz de fazer, convide-o para falar para seu criador adicionar tal função!"
             },
             {
                 "role": "model",
-                "parts": "Não consigo fazer isso, você pode ver os comandos dizendo 'ajuda', certo entendi!"
+                "parts": "Não consigo fazer isso, você pode ver os comandos dizendo 'ajuda', ou solicitar ao meu criador para adicionar tal funcionalidade!"
             }
         ]
     },
