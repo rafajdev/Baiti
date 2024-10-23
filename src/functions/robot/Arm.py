@@ -88,7 +88,6 @@ class Arm:
         self.base.move(180, 5)
         
     def move_right(self):
-        print("UE")
         """Move the base servo right at a velocity of 5."""
         self.base.move(0, 5)
         
