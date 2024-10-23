@@ -69,7 +69,7 @@ class Arm:
         
     def move_open(self):
         """Move the claw servo to open at a velocity of 3."""
-        self.claw.move(90, 4)
+        self.claw.move(90, 3)
         
     def move_close(self):
         """Move the claw servo to close at a velocity of 3."""
@@ -77,7 +77,7 @@ class Arm:
         
     def move_front(self):
         """Move the right servo front at a velocity of 5."""
-        self.right.move(30, 5)
+        self.right.move(40, 5)
         
     def move_back(self):
         """Move the right servo back at a velocity of 3."""
@@ -94,6 +94,12 @@ class Arm:
     def move_middle(self):
         """Move the base servo to the middle at a velocity of 5."""
         self.base.move(90, 5)
+
+    def move_left_diagonal(self):
+        self.base.move(135, 5)
+
+    def move_right_diagonal(self):
+        self.base.move(45, 5)
         
     def move_default(self):
         """Move all servos to their default angles at a velocity of 5."""
