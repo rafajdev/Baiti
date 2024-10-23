@@ -59,6 +59,9 @@ def switch(value: str):
 
 def led_on_talk(element):
    user_response = listen()
+   
+   if user_response is None:
+      return 'comp_error'
    result = element.set_color_by_name(user_response)
 
    if result == 'color_error':
