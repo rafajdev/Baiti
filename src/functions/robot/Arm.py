@@ -59,9 +59,49 @@ class Arm:
         self.claw.move(self.claw_init_angle, 5)
         self.main_led.off()
         
-
-    def _printf(self):
-        print("Oi")
+    def move_up(self):
+        """Move the left servo up at a velocity of 3."""
+        self.left.move(180, 4)
+        
+    def move_down(self):
+        """Move the left servo down at a velocity of 6."""
+        self.left.move(90, 6)
+        
+    def move_open(self):
+        """Move the claw servo to open at a velocity of 3."""
+        self.claw.move(90, 4)
+        
+    def move_close(self):
+        """Move the claw servo to close at a velocity of 3."""
+        self.claw.move(140, 4)
+        
+    def move_front(self):
+        """Move the right servo front at a velocity of 5."""
+        self.right.move(30, 5)
+        
+    def move_back(self):
+        """Move the right servo back at a velocity of 3."""
+        self.right.move(0, 4)
+        
+    def move_left(self):
+        """Move the base servo left at a velocity of 5."""
+        self.base.move(180, 5)
+        
+    def move_right(self):
+        print("UE")
+        """Move the base servo right at a velocity of 5."""
+        self.base.move(0, 5)
+        
+    def move_middle(self):
+        """Move the base servo to the middle at a velocity of 5."""
+        self.base.move(90, 5)
+        
+    def move_default(self):
+        """Move all servos to their default angles at a velocity of 5."""
+        self.base.move(self.base_init_angle, 5)
+        self.right.move(self.right_init_angle, 5)
+        self.left.move(self.left_init_angle, 5)
+        self.claw.move(self.claw_init_angle, 5)
 
     def end_operation(self):
         """
