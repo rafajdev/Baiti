@@ -27,10 +27,11 @@ def switch(value: str):
       # arm commands
       'esquerda': lambda: control.arm.move_left(),
       'direita': lambda: control.arm.move_right(),
+      'diagonal esquerda': lambda: control.arm.move_left_diagonal(),
+      'diagonal direita': lambda: control.arm.move_right_diagonal(),
       'frente': lambda: control.arm.move_front(),
       'atras': lambda: control.arm.move_back(),
       'atrás': lambda: control.arm.move_back(),
-      'frente': lambda: control.arm.move_front(),
       'cima': lambda: control.arm.move_up(),
       'baixo': lambda: control.arm.move_down(),
       'meio': lambda: control.arm.move_middle(),
