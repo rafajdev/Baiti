@@ -1,6 +1,7 @@
 from .speech import *
 from utils.json_handler import json_h
-from functions.robot import control
+from functions.robot import control 
+from functions.camera import control as control_cam
 
 def switch(value: str):
    if value is None:
@@ -37,6 +38,8 @@ def switch(value: str):
       'fechar garra': lambda: control.arm.move_close(),      
       'voltar ao normal': lambda: control.arm.move_default(),
       'voltar normal': lambda: control.arm.move_default(),
+      
+      'modo câmera': lambda: (control_cam.cam_request(), speak('o que deseja fazer agora?')),
       
       # end command
       'encerrar': lambda: 'exit'
