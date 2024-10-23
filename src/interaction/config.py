@@ -28,13 +28,3 @@ def apiConfig():
         return [chat, model]
     except Exception as e:
         print(f"Ocorreu um erro inesperado: {e}") # Fazer isto aparecer em um display se possível
-
-# myFile = genai.upload_file(path="src/assets/images/image.jpeg")
-
-# result = model.generate_content(
-#     [myFile, "\n\n", "Quais são os objetos que estão na mesa?"]
-# )
-
-# print(f"{result.text=}") 
-
-# IMPLEMENTAR o algoritmo de reconhecimento de imagem mas antes o da camera
