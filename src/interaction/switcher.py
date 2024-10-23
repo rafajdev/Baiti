@@ -2,6 +2,7 @@ from .speech import *
 from utils.json_handler import json_h
 from functions.robot import control 
 from functions.camera import control as control_cam
+from functions.catcher import catch
 
 def switch(value: str):
    if value is None:
@@ -41,7 +42,12 @@ def switch(value: str):
       'voltar normal': lambda: control.arm.move_default(),
       
       'modo câmera': lambda: (control_cam.cam_request(), speak('o que deseja fazer agora?')),
-      
+
+      # catcher command
+      'modo bloco': lambda: (catch.start(), speak('O que deseja fazer agora?')),
+      'modo blo': lambda: (catch.start(), speak('O que deseja fazer agora?')),
+      'Monobloco': lambda: (catch.start(), speak('O que deseja fazer agora?')),
+            
       # end command
       'encerrar': lambda: 'exit'
    }
