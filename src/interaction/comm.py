@@ -18,8 +18,8 @@ def init():
       elif algorithm_response == 'comp_error' or algorithm_response == 'pass':
          continue
       
-      user_history.append(user_response)
       chat_response = chat.send_message(algorithm_response)
+      user_history.append(user_response)
       model_history.append(chat_response.text)
       speak(chat_response.text)
 
