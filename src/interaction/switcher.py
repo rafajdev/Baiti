@@ -13,7 +13,22 @@ def switch(value: str):
       'piano': lambda: speak('another one bites the dust'),
       'teste': lambda: (speak('executando o braço'), control.arm.testing()),
       'acender led': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
+      'acender le': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
       'apagar led': lambda: (speak('apagando o led!'), control.arm.main_led.off(), speak('o que deseja fazer agora?')),
+      
+      'esquerda': lambda: control.arm.move_left(),
+      'direita': lambda: control.arm.move_right(),
+      'frente': lambda: control.arm.move_front(),
+      'atras': lambda: control.arm.move_back(),
+      'atrás': lambda: control.arm.move_back(),
+      'frente': lambda: control.arm.move_front(),
+      'cima': lambda: control.arm.move_up(),
+      'baixo': lambda: control.arm.move_down(),
+      'meio': lambda: control.arm.move_middle(),
+      'abrir garra': lambda: control.arm.move_open(),
+      'fechar garra': lambda: control.arm.move_close(),      
+      'voltar ao normal': lambda: control.arm.move_default(),
+      
       'encerrar': lambda: 'exit'
    }
 
