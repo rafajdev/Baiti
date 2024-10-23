@@ -27,3 +27,18 @@ def apiConfig():
       return chat
    except Exception as e:
       print(f"Ocorreu um erro inesperado: {e}") # Fazer isto aparecer em um display se possível
+      
+
+
+
+
+api_key = os.getenv('GOOGLE_API_KEY')
+
+
+genai.configure(api_key=api_key)
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+
+result = model.generate_content(
+    [myfile, "\n\n", "Can you tell me about the instruments in this photo?"]
+)
