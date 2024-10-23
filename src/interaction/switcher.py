@@ -21,7 +21,7 @@ def switch(value: str):
       'acender led': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
       'acender le': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
       'acender luz': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
-      ''
+      'apagar le': lambda: (speak('apagando o led'), control.arm.main_led.off(), speak('o que deseja fazer agora?')),
       'apagar led': lambda: (speak('apagando o led!'), control.arm.main_led.off(), speak('o que deseja fazer agora?')),
       
       # arm commands
