@@ -35,4 +35,6 @@ def apiConfig():
 #     [myFile, "\n\n", "Quais são os objetos que estão na mesa?"]
 # )
 
-# print(f"{result.text=}")
+# print(f"{result.text=}") 
+
+# IMPLEMENTAR o algoritmo de reconhecimento de imagem mas antes o da camera
