@@ -13,3 +13,4 @@ src/assets/audios/speech.mp3
 *.sqlite3
 *.env
 src/assets/audios/speech.mp3
+src/data/main.json
