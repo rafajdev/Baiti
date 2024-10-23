@@ -1,7 +1,7 @@
 from .Camera import Camera
 from interaction.speech import *
 
-cam = Camera(1)
+cam = Camera("src/assets/images/image.jpeg", 1)
 
 def cam_request():
    speak("Modo camera ativo!")
