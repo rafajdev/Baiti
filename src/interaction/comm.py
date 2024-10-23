@@ -4,7 +4,9 @@ from .switcher import switch
 from utils.json_handler import json_h
 
 def init():
-   chat = apiConfig()
+   API = apiConfig()
+   chat = API[0]
+   
    speak(json_h.read('standard_messages')['greetings']['pt-BR'])
    user_history = []
    model_history = []
