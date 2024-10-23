@@ -8,14 +8,22 @@ def switch(value: str):
    text = value.lower()
 
    switch_map = {
+      # help command
       'ajuda': lambda: speak(json_h.read('standard_messages')['help']['pt-BR']),
+      
+      # test commands
       'eita': lambda: speak('eita'),
       'piano': lambda: speak('another one bites the dust'),
       'teste': lambda: (speak('executando o braço'), control.arm.testing()),
+      
+      # led commands
       'acender led': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
       'acender le': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
+      'acender luz': lambda: (speak('qual cor deseja que o led acenda?'), led_on_talk(control.arm.main_led)),
+      ''
       'apagar led': lambda: (speak('apagando o led!'), control.arm.main_led.off(), speak('o que deseja fazer agora?')),
       
+      # arm commands
       'esquerda': lambda: control.arm.move_left(),
       'direita': lambda: control.arm.move_right(),
       'frente': lambda: control.arm.move_front(),
@@ -28,7 +36,9 @@ def switch(value: str):
       'abrir garra': lambda: control.arm.move_open(),
       'fechar garra': lambda: control.arm.move_close(),      
       'voltar ao normal': lambda: control.arm.move_default(),
+      'voltar normal': lambda: control.arm.move_default(),
       
+      # end command
       'encerrar': lambda: 'exit'
    }
 
