@@ -24,3 +24,5 @@ def cam_request():
             speak("Nenhuma imagem encontrada! Que tal tirar uma nova?")
          else:
             speak(result)
+      else:
+         speak("Comando inválido! Tente novamente!")
