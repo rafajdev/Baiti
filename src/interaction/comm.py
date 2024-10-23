@@ -2,6 +2,7 @@ from .config import apiConfig
 from .speech import *
 from .switcher import switch
 from utils.json_handler import json_h
+from end import finale
 
 def init():
    API = apiConfig()
@@ -16,6 +17,7 @@ def init():
       algorithm_response = switch(user_response)
 
       if algorithm_response == 'exit':
+         finale()
          break
       elif algorithm_response == 'comp_error' or algorithm_response == 'pass':
          continue
