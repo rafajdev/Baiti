@@ -1,7 +1,7 @@
 from .Camera import Camera
 from interaction.speech import *
 
-cam = Camera("src/assets/images/image.jpeg", 0)
+cam = Camera("src/assets/images/image.jpeg", 2)
 
 def cam_request():
    speak("Modo camera ativo!")
@@ -13,6 +13,10 @@ def cam_request():
          speak("Saindo do modo camera...")
          return 'pass'
       elif user_response == 'foto':
+         speak("Foto tirada!")
+         cam.take_picture()
+         speak("O que deseja fazer agora?")
+      elif user_response == 'fotos':
          speak("Foto tirada!")
          cam.take_picture()
          speak("O que deseja fazer agora?")
