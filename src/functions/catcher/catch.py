@@ -20,6 +20,16 @@ def start():
                 cam.take_picture()
                 text1 = cam.analyze_picture('qual a cor do bloco?')
                 text2 = cam.analyze_picture('qual o formato do bloco?')
+
+                colors = ['vermelho', 'verde', 'azul', 'amarelo', 'amarela']
+                for color in colors: 
+                    if color in text1: 
+                        detected_color = color
+
+                print(detected_color)
+
+                arm.main_led.set_color_by_name(detected_color)
+
                 speak(text1)
                 speak(text2)
 0
