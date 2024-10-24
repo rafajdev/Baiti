@@ -1,8 +1,9 @@
 from .speech import *
 from utils.json_handler import json_h
 from functions.robot import control 
-from functions.camera import control as control_cam
+from functions.camera.control import cam_request
 from functions.catcher import catch
+from functions.robot.control_led import led_on_talk
 
 def switch(value: str):
    if value is None:
@@ -41,9 +42,8 @@ def switch(value: str):
       'voltar ao normal': lambda: control.arm.move_default(),
       'voltar normal': lambda: control.arm.move_default(),
       
-      'modo câmera': lambda: (control_cam.cam_request(), speak('o que deseja fazer agora?')),
-
-      # catcher command
+      # camera commands
+      'modo câmera': lambda: (cam_request(), speak('o que deseja fazer agora?')),
       'modo bloco': lambda: (catch.start(), speak('O que deseja fazer agora?')),
       'modo blo': lambda: (catch.start(), speak('O que deseja fazer agora?')),
       'Monobloco': lambda: (catch.start(), speak('O que deseja fazer agora?')),
@@ -63,17 +63,3 @@ def switch(value: str):
          return 'pass'
    else:
       return text
-
-def led_on_talk(element):
-   user_response = listen()
-   
-   if user_response is None:
-      return 'comp_error'
-   result = element.set_color_by_name(user_response)
-
-   if result == 'color_error':
-      speak(json_h.read('standard_messages')['error']['pt-BR'])
-      return 'pass'
-   else:
-      speak("Led acendido! O que deseja fazer agora?")
-      return 'pass'
