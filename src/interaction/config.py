@@ -14,10 +14,10 @@ def apiConfig() -> list:
       list: A list containing the chat object and the GenerativeModel instance, [chat, model].
 
     """
-    load_dotenv()
-    api_key = os.getenv('GOOGLE_API_KEY')
-
     try:
+        load_dotenv()
+        api_key = os.getenv('GOOGLE_API_KEY')
+        
         genai.configure(api_key=api_key)
         model = genai.GenerativeModel("gemini-1.5-flash")
 
