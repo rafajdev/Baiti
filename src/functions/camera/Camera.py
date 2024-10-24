@@ -2,7 +2,7 @@ import cv2
 import os
 import google.generativeai as genai
 from interaction.config import apiConfig
-import time  # Para adicionar atrasos
+import time 
 
 class Camera:
     """
@@ -48,11 +48,10 @@ class Camera:
             print("Erro ao acessar a câmera!")
             return
 
-        # Descartar os primeiros quadros para garantir que o buffer seja atualizado
         for _ in range(5):
             self.camera.read()
 
-        time.sleep(0.1)  # Pequeno atraso para garantir que a câmera esteja pronta
+        time.sleep(0.05)  
 
         ret, frame = self.camera.read()
 
