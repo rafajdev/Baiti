@@ -1,4 +1,4 @@
-# Bot Algorihm for Inteligent Tasks and Interactions 
+# Bot Algorihm for Inteligent Tasks and Interactions (Using Arduino)
 
 ## Description
 
