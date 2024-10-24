@@ -20,7 +20,9 @@ def cam_request():
          speak("O que quer que eu analise na imagem?")
          result = cam.analyze_picture(listen())
          
-         if result == 'no_image':
+         if result is None:
+            speak("Não entendi. Tente novamente!")
+         elif result == 'no_image':
             speak("Nenhuma imagem encontrada! Que tal tirar uma nova?")
          else:
             speak(result)
