@@ -14,12 +14,15 @@ def generate_speech(text: str):
     text : str
         The text to be converted to speech.
     """
-    speech_generator = gTTS(text, lang="pt-BR")
-    speech_generator.save("src/assets/audios/speech.mp3")
+    try:
+        speech_generator = gTTS(text, lang="pt-BR")
+        speech_generator.save("src/assets/audios/speech.mp3")
 
-    audio = AudioSegment.from_mp3("src/assets/audios/speech.mp3")
-    audio = audio.speedup(playback_speed=1.3)
-    audio.export("src/assets/audios/speech.mp3", format="mp3")
+        audio = AudioSegment.from_mp3("src/assets/audios/speech.mp3")
+        audio = audio.speedup(playback_speed=1.3)
+        audio.export("src/assets/audios/speech.mp3", format="mp3")
+    except Exception as e:
+        print(f"Error generating speech: {e}")
 
 def play_speech():
     """
@@ -28,11 +31,15 @@ def play_speech():
     This function initializes the Pygame mixer, loads the speech audio file, plays it,
     and waits until the audio finishes playing before quitting Pygame.
     """
-    pygame.mixer.init()
-    pygame.mixer.music.load("src/assets/audios/speech.mp3")
+    try:
+        pygame.mixer.init()
+        pygame.mixer.music.load("src/assets/audios/speech.mp3")
 
-    pygame.mixer.music.play()
-    while pygame.mixer.music.get_busy():
-        time.sleep(1)
+        pygame.mixer.music.play()
+        while pygame.mixer.music.get_busy():
+            time.sleep(1)
 
-    pygame.quit()
+    except Exception as e:
+        print(f"Error playing speech: {e}")
+    finally:
+        pygame.quit()
