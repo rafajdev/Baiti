@@ -49,6 +49,7 @@ class RGBLed:
             'verde': (0, 1, 0),
             'azul': (0, 0, 1),
             'amarelo': (1, 1, 0),
+            'amarela': (1, 1, 0),
             'magenta': (1, 0, 1),
             'ciano': (0, 1, 1),
             'branco': (1, 1, 1)
