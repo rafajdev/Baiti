@@ -31,5 +31,5 @@ def init():
       print(chat_response.text)
       speak(chat_response.text)
 
-   #  json_h.add_to_history('user', user_history)
-   #  json_h.add_to_history('model', model_history)
+   json_h.add_to_history('user', user_history)
+   json_h.add_to_history('model', model_history)
