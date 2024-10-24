@@ -27,4 +27,4 @@ def apiConfig():
 
         return [chat, model]
     except Exception as e:
-        print(f"Ocorreu um erro inesperado: {e}") # Fazer isto aparecer em um display se possível
+        print(f"Ocorreu um erro inesperado: {e}")
