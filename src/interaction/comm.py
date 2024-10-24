@@ -25,6 +25,7 @@ def init():
       chat_response = chat.send_message(algorithm_response)
       user_history.append(user_response)
       model_history.append(chat_response.text)
+      print(chat_response.text)
       speak(chat_response.text)
 
    # json_h.add_to_history('user', user_history)
