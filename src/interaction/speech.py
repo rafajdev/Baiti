@@ -29,11 +29,11 @@ def listen() -> str:
          audio = recognizer.listen(source)
          text = recognizer.recognize_google(audio, language="pt-BR")
 
-         print(f"Voc : {text}")
+         print(f"Você: {text}")
          return text
    except (speech_recognition.UnknownValueError, speech_recognition.RequestError) as e:
       print(f"Erro de escuta")
-      speak("Desculpe, n o entendi... Pode repetir?")
+      speak("Desculpe, não entendi... Pode repetir?")
       return None
 
    except Exception as e:
