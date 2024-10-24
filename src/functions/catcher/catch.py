@@ -19,7 +19,6 @@ def start():
             elif user_response.lower() == 'analisar bloco':
                 cam.take_picture()
                 text1 = cam.analyze_picture('qual a cor do bloco?')
-                text2 = cam.analyze_picture('qual o formato do bloco?')
 
                 colors = ['vermelho', 'verde', 'azul', 'amarelo', 'amarela']
                 for color in colors: 
@@ -31,5 +30,3 @@ def start():
                 arm.main_led.set_color_by_name(detected_color)
 
                 speak(text1)
-                speak(text2)
-0
