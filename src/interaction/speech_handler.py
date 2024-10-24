@@ -3,7 +3,7 @@ import pygame
 import time
 from pydub import AudioSegment
 
-def generate_speech(text: str) -> None:
+def generate_speech(text: str):
     """
     Generate a speech audio file based on given text.
 
