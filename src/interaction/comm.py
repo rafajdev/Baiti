@@ -6,7 +6,7 @@ from end import finale
 
 def init():
    API = apiConfig()
-   chat = API[0]
+   CHAT = API[0]
    
    user_history = []
    model_history = []
@@ -23,7 +23,7 @@ def init():
       elif algorithm_response == 'comp_error' or algorithm_response == 'pass':
          continue
       
-      chat_response = chat.send_message(algorithm_response)
+      chat_response = CHAT.send_message(algorithm_response)
       
       user_history.append(user_response)
       model_history.append(chat_response.text)
