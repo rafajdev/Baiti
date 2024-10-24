@@ -27,5 +27,7 @@ def cam_request():
          else:
             speak(result)
             speak("O que deseja fazer agora?")
-      else:
+      elif user_response is None:
          pass
+      else:
+         speak("Comando inválido! Tente novamente!")
