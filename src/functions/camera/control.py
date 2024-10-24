@@ -27,4 +27,4 @@ def cam_request():
          else:
             speak(result)
       else:
-         speak("Comando inválido! Tente novamente!")
+         pass
