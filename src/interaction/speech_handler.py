@@ -1,6 +1,7 @@
 from gtts import gTTS
 import pygame
 import time
+from pydub import AudioSegment
 
 def generate_speech(text: str) -> None:
     """
@@ -15,6 +16,12 @@ def generate_speech(text: str) -> None:
     """
     speech_generator = gTTS(text, lang="pt-BR")
     speech_generator.save("src/assets/audios/speech.mp3")
+
+    audio = AudioSegment.from_mp3("src/assets/audios/speech.mp3")
+
+    audio = audio.speedup(playback_speed=1.3)
+
+    audio.export("src/assets/audios/speech.mp3", format="mp3")
 
 def play_speech():
     """
