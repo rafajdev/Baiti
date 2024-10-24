@@ -112,5 +112,6 @@ class Arm:
         """
         End the operation by exiting the board connection.
         """
+        self.move_default()
         self.main_led.off()
         self.board.exit()
