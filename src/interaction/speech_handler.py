@@ -18,9 +18,10 @@ def generate_speech(text: str):
         speech_generator = gTTS(text, lang="pt-BR")
         speech_generator.save("src/assets/audios/speech.mp3")
 
-        audio = AudioSegment.from_mp3("src/assets/audios/speech.mp3")
-        audio = audio.speedup(playback_speed=1.3)
-        audio.export("src/assets/audios/speech.mp3", format="mp3")
+        # Revisar pois está deixando o áudio com baixa qualidade 
+        # audio = AudioSegment.from_mp3("src/assets/audios/speech.mp3")
+        # audio = audio.speedup(playback_speed=1.3)
+        # audio.export("src/assets/audios/speech.mp3", format="mp3")
     except Exception as e:
         print(f"Error generating speech: {e}")
 
