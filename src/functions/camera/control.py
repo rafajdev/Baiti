@@ -7,7 +7,6 @@ def cam_request():
    speak("Modo camera ativo!")
    
    while True:
-      speak("O que deseja fazer agora?")
       user_response = listen()
       
       if user_response == 'voltar':
@@ -16,6 +15,7 @@ def cam_request():
       elif user_response == 'foto':
          speak("Foto tirada!")
          cam.take_picture()
+         speak("O que deseja fazer agora?")
       elif user_response == 'analisar':
          speak("O que quer que eu analise na imagem?")
          result = cam.analyze_picture(listen())
@@ -26,5 +26,6 @@ def cam_request():
             speak("Nenhuma imagem encontrada! Que tal tirar uma nova?")
          else:
             speak(result)
+            speak("O que deseja fazer agora?")
       else:
          pass
