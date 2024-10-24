@@ -10,3 +10,4 @@ pyaudio
 pyfirmata2
 python-dotenv
 opencv-python
+pydub
